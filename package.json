@@ -48,7 +48,7 @@
   },
   "peerDependencies": {
     "ramda": "^0.26.1",
-    "react": "^16.7.0-alpha.2"
+    "react": "16.7.0-alpha.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.2.1",
@@ -58,5 +58,8 @@
     "microbundle": "^0.8.3",
     "prettier": "^1.15.3",
     "standard-version": "^4.4.0"
+  },
+  "dependencies": {
+    "rxjs": "^6.3.3"
   }
 }
