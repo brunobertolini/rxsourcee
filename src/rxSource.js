@@ -1,4 +1,4 @@
-import { rxState } from './rxState'
+import { BehaviorSubject } from 'rxjs'
 
 const createAction = (_, action, effect) => (...params) => {
   const ctx = _.getContext()
@@ -43,8 +43,10 @@ export const createResource = ({
   actions,
   cancelToken,
 }) => {
-  const ctx = rxState(typeof context === 'function' ? context() : context)
-  const state = rxState({ loading: !!initial })
+  const ctx = new BehaviorSubject(
+    typeof context === 'function' ? context() : context
+  )
+  const state = new BehaviorSubject({ loading: !!initial })
   let cancelSource = null
 
   const _ = {
@@ -62,10 +64,10 @@ export const createResource = ({
   }
 
   _.read = createAction(_, load, effects.read)
-  _.setState = createAction(_, byPass(state.set, _.getState), effects.setState)
+  _.setState = createAction(_, byPass(state.next, _.getState), effects.setState)
   _.setContext = createAction(
     _,
-    byPass(ctx.set, _.getContext),
+    byPass(ctx.next, _.getContext),
     effects.setContext
   )
 
