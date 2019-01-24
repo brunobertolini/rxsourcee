@@ -73,9 +73,7 @@ export const createResource = ({
     ...createActions(_, actions, effects),
     read: _.read,
     getState: () => state,
-    setState: _.setState,
     getContext: () => ctx,
-    setContext: _.setContext,
     cancel: cancelSource && cancelSource.cancel,
   }
 }
