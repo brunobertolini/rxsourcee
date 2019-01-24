@@ -23,7 +23,7 @@
   "scripts": {
     "fix": "yarn fix:lint",
     "fix:lint": "prettier \"src/**/*.{js,jsx,ts,tsx}\" --write",
-    "lib:watch": "microbundle watch --target browser --name rxsourcee --jsx React.createElement",
+    "lib:dev": "microbundle watch --target browser --name rxsourcee --jsx React.createElement",
     "lib:build": "microbundle build --target browser --name rxsourcee --jsx React.createElement",
     "lib:release": "standard-version --no-verify",
     "build": "yarn lib:build",

@@ -32,7 +32,9 @@ const load = async (_, ctx) => {
 }
 
 const next = (state, prev) => (_, ctx, ...params) =>
-  fn.next(...(typeof params[0] === 'function' ? [params[0](prev())] : params))
+  state.next(
+    ...(typeof params[0] === 'function' ? [params[0](prev())] : params)
+  )
 
 export const createResource = ({
   initial,
