@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.0-alpha.4"></a>
+# [0.1.0-alpha.4](https://github.com/brunobertolini/rxsourcee/compare/v0.1.0-alpha.3...v0.1.0-alpha.4) (2019-01-24)
+
+
+### Bug Fixes
+
+* next function ([ef483bc](https://github.com/brunobertolini/rxsourcee/commit/ef483bc))
+
+
+
 <a name="0.1.0-alpha.3"></a>
 # [0.1.0-alpha.3](https://github.com/brunobertolini/rxsourcee/compare/v0.1.0-alpha.2...v0.1.0-alpha.3) (2019-01-24)
 
