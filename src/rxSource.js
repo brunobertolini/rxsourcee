@@ -31,8 +31,8 @@ const load = async (_, ctx) => {
   }
 }
 
-const byPass = (fn, prev) => (_, ctx, ...params) =>
-  fn(...(typeof params[0] === 'function' ? [params[0](prev())] : params))
+const next = (state, prev) => (_, ctx, ...params) =>
+  fn.next(...(typeof params[0] === 'function' ? [params[0](prev())] : params))
 
 export const createResource = ({
   initial,
@@ -64,12 +64,8 @@ export const createResource = ({
   }
 
   _.read = createAction(_, load, effects.read)
-  _.setState = createAction(_, byPass(state.next, _.getState), effects.setState)
-  _.setContext = createAction(
-    _,
-    byPass(ctx.next, _.getContext),
-    effects.setContext
-  )
+  _.setState = createAction(_, next(state, _.getState), effects.setState)
+  _.setContext = createAction(_, next(ctx, _.getContext), effects.setContext)
 
   initial && _.read()
 
